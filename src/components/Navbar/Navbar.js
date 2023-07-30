@@ -1,6 +1,6 @@
 import './Navbar.css';
 import { CardWidget } from "../CartWidget/index";
-
+import { ItemDetailContainer } from '../ItemDetailContainer/ItemDetailContainer';
 
 
 export const Navbar=()=>{
@@ -28,6 +28,7 @@ export const Navbar=()=>{
       </ul>
     </div>
     <CardWidget/> <h1 className="carrito">0</h1>
+    <ItemDetailContainer/>
   </div>
 </nav>
     );
