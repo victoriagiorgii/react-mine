@@ -1,7 +1,7 @@
 import './App.css';
 import { Navbar } from './components/Navbar/Navbar';
 import { ItemListContainer } from './components/ItemListContainer';
-import {ItemDetailContainer} from './components/ItemDetailContainer';
+import { ItemDetailContainer } from './src/components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       <ItemListContainer/>
       <ItemDetailContainer/>
     </BrowserRouter>
-    
+
   </div>
  );
 }
