@@ -1,15 +1,13 @@
-import '../datosprod/pedirDatos';
 
-
-[
+  const list=[
     {
-        id: '1',
-            titulo: "ARO MARIPOSA",
-            descripcion: "Aro forma mariposa de plata.",
-            categoria: "Aros",
-            img: '/imagenes/aros-mariposa.webp',
-            precio:2000,
-            stock: 10,
+        id:'1',
+        titulo  : "ARO MARIPOSA",
+        descripcion: "Aro forma mariposa de plata.",
+        categoria: "Aros",
+        img: '/imagenes/aros-mariposa.webp',
+        precio:2000,
+        stock: 10,
     },
     {
         id: '2',
@@ -25,7 +23,7 @@ import '../datosprod/pedirDatos';
         titulo: "Aro Bali",
         descripcion: "Aro bali con pelotita y arandela de plata.",
         categoria: "Aros",
-        imagen:'/imagenes/Aro bali.jpg',
+        img:'/imagenes/Aro bali.jpg',
         precio: 2000,
         stock: 5
     },
@@ -34,7 +32,7 @@ import '../datosprod/pedirDatos';
         titulo: "Aro Brillante",
         descripcion: "Aro de brillantes diagonal de plata.",
         categoria: "Aros",
-        imagen: '/imagenes/aro brillante.jpg',
+        img: '/imagenes/aro brillante.jpg',
         precio: 3000,
         stock: 2
     },
@@ -43,7 +41,7 @@ import '../datosprod/pedirDatos';
         titulo: "Pulsera Corazones",
         descripcion: "Pulsera corazones de acero.",
         categoria: "Pulseras",
-        imagen: '/imagenes/pulsera corazon.jpg',
+        img: '/imagenes/pulsera corazon.jpg',
         precio: 4500,
         stock: 6
     },
@@ -52,7 +50,7 @@ import '../datosprod/pedirDatos';
         titulo: "Pulsera Pando",
         descripcion: "Pulsera pando cerrada de plata.",
         categoria: "Pulseras",
-        imagen:'/imagenes/pulsera pando.jpg',
+        img:'/imagenes/pulsera pando.jpg',
         precio: 1500,
         stoc: 10
     },
@@ -61,7 +59,7 @@ import '../datosprod/pedirDatos';
         titulo: "Pulsera Diamante",
         descripcion: "Pulsera diamantes con borde y cadena de plata.",
         categoria: "Pulseras",
-        imagen:'/imagenes/pulsera diamante.jpg',
+        img:'/imagenes/pulsera diamante.jpg',
         precio: 8000,
         stock: 4
     },
@@ -70,7 +68,7 @@ import '../datosprod/pedirDatos';
         titulo: "Collar Perla",
         descripcion: "Collar perla de marr y cadena de plata.",
         categoria: "Collares",
-        imagen:'/imagenes/collar perla.jpg',
+        img:'/imagenes/collar perla.jpg',
         precio: 1000,
         stock: 3
     },
@@ -79,7 +77,7 @@ import '../datosprod/pedirDatos';
         titulo: "Collar Inicial",
         descripcion: "Collar inicial de plata (pedir inicial).",
         categoria: "Collares",
-        imagen: '/imagenes/collar inicial.jpg',
+        img: '/imagenes/collar inicial.jpg',
         precio: 11000,
         stock: 0
     },
@@ -88,8 +86,28 @@ import '../datosprod/pedirDatos';
         titulo: "Collar Mandaly",
         descripcion: "Collar mandaly de plata.",
         categoria: "Collares",
-        imagen: '/imagenes/collar mandaly.jpg',
+        img: '/imagenes/collar mandaly.jpg',
         precio: 10500,
         stock: 9
+    },]
+export const getProductos=()=>{
+        return new Promise((resolve,reject)=>{
+            let error= false
+            setTimeout(()=>{
+                if(error){
+                  reject('No hay data')
+                }else{
+                    resolve(list)
+                }
+            },0)
+        })
     }
-]
+
+
+export const getItem=(id)=>{
+    return new Promise((resolve)=>{
+     setTimeout(()=>{
+        resolve(list.find((item)=> item.id === id))
+     },2000)
+    })
+}

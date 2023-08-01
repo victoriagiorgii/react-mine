@@ -1,34 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Title } from "../Title/index";
 import {ItemList} from '../ItemList/index';
+import { Title } from "../Title/index";
+import { getProductos } from "../../mock/data";
 
 
 
 export const ItemListContainer=()=>{
     const [productos, setProductos]= useState([])
-    const list=[
-        {
-            id: 1,
-            titulo: "ARO MARIPOSA",
-            descripcion: "Aro forma mariposa de plata.",
-            categoria: "Aros",
-            img: '/imagenes/aros-mariposa.webp',
-            precio:2000,
-            stock: 10,
-        },
-    ]
-    const getProductos=()=>{
-        return new Promise((resolve,reject)=>{
-            let error= false
-            setTimeout(()=>{
-                if(error){
-                  reject('No hay data')
-                }else{
-                    resolve(list)
-                }
-            },0)
-        })
-    }
+  
+   
     useEffect(()=>{
       getProductos()
       .then((res)=> setProductos(res))
@@ -41,7 +21,7 @@ export const ItemListContainer=()=>{
             
         </div>
 
-    )
+    ) 
     
 }
 
