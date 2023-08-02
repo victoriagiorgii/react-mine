@@ -2,18 +2,26 @@ import React, { useEffect, useState } from "react";
 import {ItemList} from '../ItemList/index';
 import { Title } from "../Title/index";
 import { getProductos } from "../../mock/data";
-
+import { useParams } from "react-router-dom";
+import { getProductosCategoria } from "../../mock/data";
 
 
 export const ItemListContainer=()=>{
     const [productos, setProductos]= useState([])
-  
-   
+    const{categoriaId}= useParams()
+       
     useEffect(()=>{
-      getProductos()
-      .then((res)=> setProductos(res))
-      .catch((error)=> setProductos(error))
-    },[])
+        if (categoriaId) {
+
+            getProductosCategoria(categoriaId).then ((res)=> setProductos(res))
+            }
+            else {
+            
+            getProductos().then ((res)=>setProductos(res))
+            }
+    },[categoriaId])
+
+
     return(
         <div>
             <Title greeting='Bienvenidos a GIACCE!!'/>

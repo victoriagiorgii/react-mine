@@ -1,30 +1,28 @@
 import './Navbar.css';
 import { Navbar } from 'react-bootstrap';
 import { CardWidget } from "../CartWidget/index";
-import{ItemDetailContainer} from '../ItemDetailContainer/ItemDetailContainer';
 import { Container, Nav, NavDropdown } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
-export const Navbar=()=>{
+export const NavBar=()=>{
   return(
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="navbar-mine">
       <Container>
-        <Navbar.Brand href="#home">GIACCE</Navbar.Brand>
+        <Navbar.Brand as={NavLink}to='/'>GIACCE</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Inicio</Nav.Link>
-            <Nav.Link href="#link">Nosotros</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Aros</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Collares</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Pulseras</NavDropdown.Item>
+            <Nav.Link as={NavLink}to='/'>Inicio</Nav.Link>
+            <NavDropdown title="Accesorios" id="basic-nav-dropdown">
+              <NavDropdown.Item as={NavLink}to='/categoria/Aros'>Aros</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink}to='/categoria/Collares'>Collares</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink}to='/categoria/Pulseras'>Pulseras</NavDropdown.Item>
               <NavDropdown.Divider />
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
       <CardWidget/> <h1 className="carrito">0</h1>
-      <ItemDetailContainer/>
     </Navbar>
   );
 }  

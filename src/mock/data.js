@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 
   const list=[
     {
@@ -34,7 +35,7 @@
         categoria: "Aros",
         img: '/imagenes/aro brillante.jpg',
         precio: 3000,
-        stock: 2
+        stock: 5
     },
     {
         id: '5',
@@ -51,7 +52,7 @@
         descripcion: "Pulsera pando cerrada de plata.",
         categoria: "Pulseras",
         img:'/imagenes/pulsera pando.jpg',
-        precio: 1500,
+        precio: 5500,
         stoc: 10
     },
     {
@@ -69,7 +70,7 @@
         descripcion: "Collar perla de marr y cadena de plata.",
         categoria: "Collares",
         img:'/imagenes/collar perla.jpg',
-        precio: 1000,
+        precio: 10000,
         stock: 3
     },
     {
@@ -79,7 +80,7 @@
         categoria: "Collares",
         img: '/imagenes/collar inicial.jpg',
         precio: 11000,
-        stock: 0
+        stock: 6
     },
     {
         id: '10',
@@ -108,6 +109,17 @@ export const getItem=(id)=>{
     return new Promise((resolve)=>{
      setTimeout(()=>{
         resolve(list.find((item)=> item.id === id))
-     },2000)
+     },0)
     })
 }
+
+export const getProductosCategoria = (categoria) => {
+    return new Promise((res) => {
+      const productos = list.filter(
+        (producto) => producto.categoria === categoria
+      );
+      setTimeout(() => {
+        res(productos);
+      },0);
+    });
+  }

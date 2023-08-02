@@ -5,12 +5,12 @@ export const ItemCount= ({stock, initial,onAdd}) =>{
   const [count, setCount] = useState(initial)
   const restar = () =>{
     if(count < stock){
-        setCount(count + 1)
+        setCount(count - 1)
     }
   }
   const sumar = () =>{
     if(count < stock){
-      setCount(count - 1)
+      setCount(count + 1)
     }
     }
   

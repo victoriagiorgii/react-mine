@@ -8,7 +8,7 @@ export const Title=(props)=>{
 
     return(
 
-        <h1 className="title-mine">{props.greeting}</h1>
+        <h1 className="title-mine">{props.greeting} </h1>
 
     )
 
